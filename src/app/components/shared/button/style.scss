@@ -1,0 +1,153 @@
+@import 'src/app/styles/colors';
+@import 'src/app/styles/functions';
+
+$style-types: ('filled', 'outlined', 'translucent', 'transparent', 'gradient');
+
+@mixin button-styles() {
+    @each $style-type in $style-types {
+      @each $color-style, $color in $colors {
+        &.#{$style-type}.#{$color-style} {
+          @if $style-type == 'filled' {
+            @include button-style(map-get($color, 400), map-get($color, 500), var(--white), var(--white), none);
+          }
+          @if $style-type == 'outlined' {
+            @include button-style(
+              transparent,
+              map-get($color, 400),
+              map-get($color, 400),
+              var(--white),
+              0 0 0 1px map-get($color, 400)
+            );
+          }
+          @if $style-type == 'translucent' {
+            @include button-style(
+              get-color-with-opacity(map-get($color, 400), 0.1),
+              get-color-with-opacity(map-get($color, 400), 0.2),
+              map-get($color, 400),
+              map-get($color, 400),
+              none
+            );
+          }
+          @if $style-type == 'transparent' {
+            @include button-style(transparent, transparent, map-get($color, 400), map-get($color, 400), none);
+          }
+  
+          @if $style-type == 'gradient' {
+            @include button-style(
+              map-get($color, 'transparent'),
+              map-get($color, 'transparent'),
+              var(--white),
+              var(--white),
+              none
+            );
+  
+            background-color: transparent;
+            background-image: var(--gradient-button);
+            background-size: 400% 100%;
+            background-position: 0 100%;
+            &:hover {
+              background-color: transparent;
+              background-position: 100% 100%;
+            }
+            transition: 0.5s;
+          }
+        }
+      }
+    }
+  }
+
+
+  @mixin button-style($background-color, $background-color-hover, $text-color, $text-color-hover, $border) {
+    background: $background-color;
+    box-shadow: $border;
+  
+    transition: all 1s;
+  
+    .default-text {
+      color: $text-color;
+    }
+  
+    svg {
+      color: $text-color;
+    }
+  
+    &:hover {
+      background: $background-color-hover;
+  
+      .default-text {
+        color: $text-color-hover;
+      }
+  
+      svg {
+        color: $text-color-hover;
+      }
+    }
+  }
+
+
+  .button {
+    display: flex;
+    border-radius: 10px;
+    padding: 7px 14px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    height: max-content;
+  
+    &.only-icon {
+      padding: 7px;
+    }
+  
+    .button-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      height: max-content;
+      white-space: nowrap;
+      gap: 10px;
+  
+      &.children {
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+  
+    .default-text,
+    svg {
+      transition: all 0.5s;
+    }
+  
+    .loading {
+      color: transparent;
+      background: transparent;
+    }
+  
+    .loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  
+    @include button-styles();
+  
+    &:disabled {
+      &.filled,
+      &.outlined,
+      &.translucent,
+      &.gradient {
+        background-color: var(--grey-200) !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+  
+      .default-text,
+      svg {
+        color: var(--grey-500) !important;
+      }
+    }
+  }
+  

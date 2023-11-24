@@ -1,11 +1,15 @@
-import React from 'react';
 import './App.css';
+import {Route, Routes } from 'react-router-dom';
+import { CounterPage } from './app/pages/CounterPage';
+import { CustomRouter } from './app/router/history-router';
+import history from './history';
 
-function App() {
+export const App = () =>  {
   return (
-    <div className="App">
-    </div>
+    <CustomRouter history={history}>
+    <Routes>
+      <Route path={'*'} element={<CounterPage />} />
+    </Routes>
+    </CustomRouter>
   );
 }
-
-export default App;

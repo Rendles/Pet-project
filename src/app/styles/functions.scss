@@ -1,0 +1,17 @@
+@import 'src/app/styles/colors';
+
+@function hex-to-rgb($color) {
+  @return red($color), green($color), blue($color);
+}
+
+@function get-color-with-opacity($color, $opacity) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+
+  @return rgba($red, $green, $blue, $opacity);
+}
+
+@function get-color($color, $shade) {
+  @return map-get(map-get($colors, $color), $shade);
+}

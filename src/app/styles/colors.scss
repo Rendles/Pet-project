@@ -1,0 +1,86 @@
+$colors: (
+  red: (
+    25: #feeded,
+    50: #fcdbdb,
+    100: #fab6b6,
+    200: #f79292,
+    300: #f56d6d,
+    400: #f24949,
+    500: #c53b3b,
+    600: #982c2c,
+    700: #6c1e1e,
+    800: #3f0f0f,
+    900: #280808
+  ),
+  blue: (
+    25: #eaf5fe,
+    50: #d4ebfd,
+    100: #bfe0fc,
+    200: #7ec2f8,
+    300: #53adf6,
+    400: #2899f4,
+    500: #207ac3,
+    600: #185c92,
+    700: #0c2e49,
+    800: #081f31,
+    900: #040f18
+  ),
+  grey: (
+    25: #ffffff,
+    50: #f2f2f2,
+    100: #e4e4e4,
+    200: #cacaca,
+    300: #afafaf,
+    400: #959595,
+    500: #7a7a7a,
+    600: #494949,
+    700: #313131,
+    800: #181818,
+    900: #000000
+  ),
+  orange: (
+    25: #fdf2e8,
+    50: #fce5d0,
+    100: #fad9b9,
+    200: #f5b273,
+    300: #f29945,
+    400: #ef7f16,
+    500: #bf6612,
+    600: #8f4c0d,
+    700: #603309,
+    800: #301904,
+    900: #180d02
+  ),
+  green: (
+    25: #f0f8ea,
+    50: #e1f2d5,
+    100: #c4e4ab,
+    200: #a6d782,
+    300: #89c958,
+    400: #6bbc2e,
+    500: #569625,
+    600: #40711c,
+    700: #2b4b12,
+    800: #152609,
+    900: #0b1305
+  )
+);
+
+:root {
+  @each $color-name, $color-shades in $colors {
+    @each $shade, $value in $color-shades {
+      --#{$color-name}-#{$shade}: #{$value};
+    }
+  }
+
+  --white: var(--grey-25);
+  --grey: var(--grey-400);
+  --black: var(--grey-800);
+  --blue: var(--blue-400);
+  --green: var(--green-400);
+  --orange: var(--orange-400);
+  --red: var(--red-400);
+
+  --gradient: linear-gradient(90deg, var(--green-300) 0%, #0085d8 100.08%);
+  --gradient-button: linear-gradient(90deg, var(--green-300) 0%, #0085d8 25%, #0085d8 75%, var(--green-300) 100%);
+}
