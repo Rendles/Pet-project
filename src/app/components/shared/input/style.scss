@@ -1,0 +1,47 @@
+.input-container {
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 0 0 1px var(--grey-400);
+    border-radius: 5px;
+    color: var(--white);
+    transition: 0.5s;
+    justify-content: flex-end;
+  
+    label {
+      margin-bottom: 10px;
+    }
+  
+    &:hover {
+      box-shadow: 0 0 0 1px var(--grey-200);
+    }
+    
+    &:focus-within {
+        box-shadow: 0 0 0 1px var(--blue);
+    }
+  
+    &:disabled {
+      color: var(--grey-200);
+    }
+  
+    &.input-error {
+      border-bottom-color: var(--red-400);
+    }
+  }
+  
+  .inner-input-container {
+    position: relative;
+  
+    input {
+      width: 100%;
+      color: var(--grey-100);
+    }
+  }
+  
+  .input-title {
+    color: var(--grey-200);
+  
+    .input-title-required {
+      color: var(--red-400);
+    }
+  }
+  

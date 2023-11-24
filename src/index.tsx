@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import { App } from './App';
 import '../src/app/styles/global-styles.scss'
 import '../src/app/styles/colors.scss'

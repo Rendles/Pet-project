@@ -1,0 +1,42 @@
+.to-do-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 15px;
+    width: 50%;
+    background-color: var(--grey-700);
+    gap: 15px;
+}
+
+.to-do-item-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.to-do-item-title-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-do-separator {
+    width: 100%;
+    height: 1px;
+    background-color: var(--grey-500);
+}
+
+.to-do-creator-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.to-do-items-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}

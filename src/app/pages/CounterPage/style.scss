@@ -17,3 +17,10 @@
     align-items: center;
     gap: 20px;
 }
+
+@media screen and (max-width: 400px) {
+    .counter-buttons {
+      display: flex;
+      flex-direction: column;
+    }
+  }
