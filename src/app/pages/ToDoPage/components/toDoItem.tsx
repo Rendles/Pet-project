@@ -1,17 +1,14 @@
-import useState from 'react'
-
 import { Text7, Text10, Text9 } from '../../../components/shared/typography';
 import { Button } from '../../../components/shared/button';
 
 import './style.scss'
 
-interface ToDoItemProps {
-    id: string;
-    title: string;
-    text: string;
+export interface ToDoItemProps {
+    title?: string;
+    text?: string;
 }
 
-export const ToDoItem = ({id, title, text} : ToDoItemProps) => {
+export const ToDoItem = ({title, text} : ToDoItemProps) => {
 
     return (
         <div className='to-do-item'>

@@ -1,19 +1,18 @@
+import { useEffect } from 'react'
 import { ToDoItem } from './toDoItem'
 
-export interface ToDoItemsListProps {
-
-}
 
 
 export const ToDoItemsList = ({toDoList}: any) => {
-    
-
-
+    useEffect(
+       (() => {console.log(toDoList)}) ,
+        [toDoList]
+    );
     return (
         <div className='to-do-items-list'>
-            {toDoList.map((todo : any) => {
+            {toDoList && toDoList.map((todo : any) => {
                 return (
-                    <ToDoItem title={todo.title} id={todo.id} text={todo.text}/>
+                    <ToDoItem title={todo.title} text={todo.text}/>
                 )
             })
 
