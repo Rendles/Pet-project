@@ -19,11 +19,13 @@
       transition: all .5s;
       
       .tab {
+        flex: 1;
         padding: 7px 14px;
         color: var(--grey-25);
         z-index: 2;
         position: relative;
         cursor: pointer;
+        width: 100%;
       }
 
       .active-tab {
@@ -32,14 +34,15 @@
         position: absolute;
         background-color: var(--grey-400);
         border-radius: 10px;
-        width: 50%;
+        // width: 50%;
+        width: calc(50% - 4px);
         height: 80%;
-        right: 4px;
-        top: 4px;
+        // right: 4px;
+        // top: 4px;
 
         &.left {
             transition: all .5s;
-            transform: translateX(-60px)
+            transform: translateX(-86px)
         }
       }
 
