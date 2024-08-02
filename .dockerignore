@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+README.md
+Dockerfile
+.dockerignore
+.husky
+.git*
+.env*
